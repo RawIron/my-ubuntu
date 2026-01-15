@@ -30,15 +30,6 @@
     - zle
   tags: sh-alias
 
-- name: workspace aliases
-  template:
-    src: ./templates/alias-repos.j2
-    dest: "{{ user_home }}/.oh-my-zsh/custom/repos-aliases.zsh"
-    owner: "{{ user }}"
-    group: "{{ user_group }}"
-    mode: 0640
-  tags: sh-alias
-
 # support the oh-my-zsh virutalenvwrapper plugin
 # => automagically activates the venv when a git repo directory is entered 
 - name: install virtualenvwrapper

@@ -8,31 +8,14 @@
     as_root: yes
     user: achtmhz
     user_group: achtmhz
-    hostname: mordoror
+    hostname: atari
     user_home: /home/{{ user }}
     download_home: /tmp
     git_user: RawIron
     git_pyrepos:
-      - jotting-python
+      - learning-python
       - data-hacks
       - flask-appengine-demo
-    git_repos:
-      - devops-my-ubuntu
-      - hackerrank-d
-      - hackerrank-scala
-      - jotting-php
-      - jotting-elixir
-      - learn-cpp
-      - learning-bash
-      - scratch-java
-      - scratch-d
-      - scratch-ruby
-      - devops-opsworks
-      - farm-game
-      - gatling-loadtest-game
-      - p4-commit-parse
-      - webserver-simplest
-      - photon-turnbased-demo
 
   pre_tasks:
     - name: rename host
