@@ -2,11 +2,9 @@
 
 rclone copy .config/rclone/ s3repo:myubuntu/.config/rclone
 rclone copy .aws/ s3repo:myubuntu/.aws
-rclone copy .jungledisk/ s3repo:myubuntu/.jungledisk
 rclone copy .s3cfg s3repo:myubuntu/
 
 rclone copy .ssh/ s3repo:myubuntu/.ssh
-rclone copy .ssh_local/ s3repo:myubuntu/.ssh_local
 
 rclone copy .gitconfig s3repo:myubuntu/
 rclone copy .zsh_history s3repo:myubuntu/
