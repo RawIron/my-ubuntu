@@ -1,0 +1,45 @@
+"
+" KEY MAPPINGS - IntelliJ
+"
+nnoremap <C-S> :w<CR>
+nnoremap <C-Q> :wq<CR>
+
+" Edit
+nnoremap <c-d> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <c-s-d> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <c-y> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+nnoremap <c-s-y> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+
+" TagBar
+nnoremap <A-7> :TagbarToggle<CR>
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<C-J>"
+
+" NerdTree
+nnoremap <A-1> :NERDTreeToggle<CR>
+
+" YouCompleteMe
+nnoremap <c-b> :YcmCompleter GoTo<CR> 
+nnoremap <c-s-b> :YcmCompleter GoToDefinition<CR> 
+nnoremap <c-a-b> :YcmCompleter GoToDeclaration<CR> 
+nnoremap <c-s-7> :YcmCompleter GoToReferences<CR> 
+nnoremap <c-q> :YcmCompleter GetDoc<CR> 
+
+" PYTHON
+autocmd FileType python nnoremap <buffer> <S-F10> :w<CR>:bo term python3 %<CR>
+autocmd FileType python nnoremap <buffer> <S-A-F10> :w<CR>:bo term python3 -m nose %<CR>
+
+" ELIXIR
+autocmd BufRead *.ex  nnoremap <buffer> <S-F10> :bo term elixir %<CR>
+autocmd BufRead *.exs nnoremap <buffer> <S-F10> :bo term elixir %<CR>
+
+" Haskell
+autocmd FileType haskell nnoremap <buffer> <S-F10> :w<CR>:bo term runghc %<CR>
+
+" PHP
+autocmd FileType php nnoremap <buffer> <S-F10> :bo term php %<CR>
+
+" CPP
+autocmd FileType cpp nnoremap <C-F9> :make<CR>
+autocmd FileType cpp nnoremap <C-S-F9> :make %<CR>
