@@ -1,4 +1,3 @@
-"
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -67,6 +66,9 @@ map <C-S-RIGHT> <C-w>>
 " PLUGINS
 " 
 
+" file browser broot
+let g:broot_default_conf_path = expand('~/.config/broot/conf.hjson')
+
 " CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -89,18 +91,12 @@ autocmd FileType python setlocal shiftwidth=4
 autocmd FileType python setlocal softtabstop=4
 autocmd FileType python setlocal expandtab
 
-" C++
-autocmd FileType cpp setlocal tabstop=4
-autocmd FileType cpp setlocal shiftwidth=4
-autocmd FileType cpp setlocal softtabstop=4
-autocmd FileType cpp setlocal expandtab
-autocmd FileType cpp setlocal autoindent
-
-" BASH
-autocmd FileType sh setlocal tabstop=4
-autocmd FileType sh setlocal shiftwidth=4
-autocmd FileType sh setlocal softtabstop=4
-autocmd FileType sh setlocal expandtab
+" C++, BASH
+autocmd FileType cpp,sh setlocal tabstop=4
+autocmd FileType cpp,sh setlocal shiftwidth=4
+autocmd FileType cpp,sh setlocal softtabstop=4
+autocmd FileType cpp,sh setlocal expandtab
+autocmd FileType cpp,sh setlocal autoindent
 
 " Go
 autocmd FileType go setlocal tabstop=2
@@ -109,17 +105,19 @@ autocmd FileType go setlocal softtabstop=2
 autocmd FileType go setlocal expandtab
 autocmd FileType go setlocal autoindent
 
-" Haskell
-autocmd FileType haskell setlocal tabstop=2
-autocmd FileType haskell setlocal shiftwidth=2
-autocmd FileType haskell setlocal softtabstop=2
-autocmd FileType haskell setlocal expandtab
+" Haskell, Elixir
+autocmd FileType haskell,elixir setlocal tabstop=2
+autocmd FileType haskell,elixir setlocal shiftwidth=2
+autocmd FileType haskell,elixir setlocal softtabstop=2
+autocmd FileType haskell,elixir setlocal expandtab
 
-" Elixir
-autocmd FileType elixir setlocal tabstop=2
-autocmd FileType elixir setlocal shiftwidth=2
-autocmd FileType elixir setlocal softtabstop=2
-autocmd FileType elixir setlocal expandtab
+
+" Delete Line
+nnoremap <c-d> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <c-s-d> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
+" Insert Line
+nnoremap <c-y> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+nnoremap <c-s-y> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
 
 "
@@ -174,17 +172,3 @@ nnoremap <leader>lp :lprevious<CR>
 
 " help
 nnoremap <leader>hc :helpclose<CR>
-
-
-""" IDE
-
-" Save and quit
-nnoremap <C-S> :w<CR>
-nnoremap <C-Q> :wq<CR>
-
-" Delete Line
-nnoremap <c-d> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
-nnoremap <c-s-d> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
-" Insert Line
-nnoremap <c-y> :set paste<CR>m`o<Esc>``:set nopaste<CR>
-nnoremap <c-s-y> :set paste<CR>m`O<Esc>``:set nopaste<CR>
