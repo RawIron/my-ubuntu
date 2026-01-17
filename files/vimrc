@@ -24,12 +24,8 @@ set wildignore+=*/vendor/*,*.o,*.pyc
 set wildignore+=*/tags/*,*.log,*.zip
 set wildignore+=*/\.git/*
 
-" gvim, eye-candy
-set background=dark
+" eye-candy
 colorscheme desert
-
-" gvim, no toolbar
-set guioptions-=T
 
 " split layout
 set splitright
@@ -81,18 +77,12 @@ filetype indent on
 " Makefile
 autocmd BufEnter Makefile setlocal noexpandtab
 
-" RUBY
-autocmd FileType ruby compiler ruby
-autocmd FileType ruby setlocal tabstop=2
-autocmd FileType ruby setlocal shiftwidth=2
-autocmd FileType ruby setlocal softtabstop=2
-autocmd FileType ruby setlocal expandtab
-
-" PHP
-autocmd FileType php setlocal tabstop=2
-autocmd FileType php setlocal shiftwidth=2
-autocmd FileType php setlocal softtabstop=2
-autocmd FileType php setlocal expandtab
+" RUBY, PHP
+autocmd FileType ruby,php compiler ruby
+autocmd FileType ruby,php setlocal tabstop=2
+autocmd FileType ruby,php setlocal shiftwidth=2
+autocmd FileType ruby,php setlocal softtabstop=2
+autocmd FileType ruby,php setlocal expandtab
 
 " PYTHON
 " Format PEP-8
@@ -101,18 +91,12 @@ autocmd FileType python setlocal shiftwidth=4
 autocmd FileType python setlocal softtabstop=4
 autocmd FileType python setlocal expandtab
 
-" C++
-autocmd FileType cpp setlocal tabstop=4
-autocmd FileType cpp setlocal shiftwidth=4
-autocmd FileType cpp setlocal softtabstop=4
-autocmd FileType cpp setlocal expandtab
-autocmd FileType cpp setlocal autoindent
-
-" BASH
-autocmd FileType sh setlocal tabstop=4
-autocmd FileType sh setlocal shiftwidth=4
-autocmd FileType sh setlocal softtabstop=4
-autocmd FileType sh setlocal expandtab
+" C++, BASH
+autocmd FileType cpp,sh setlocal tabstop=4
+autocmd FileType cpp,sh setlocal shiftwidth=4
+autocmd FileType cpp,sh setlocal softtabstop=4
+autocmd FileType cpp,sh setlocal expandtab
+autocmd FileType cpp,sh setlocal autoindent
 
 " Go
 autocmd FileType go setlocal tabstop=2
@@ -121,17 +105,11 @@ autocmd FileType go setlocal softtabstop=2
 autocmd FileType go setlocal expandtab
 autocmd FileType go setlocal autoindent
 
-" Haskell
-autocmd FileType haskell setlocal tabstop=2
-autocmd FileType haskell setlocal shiftwidth=2
-autocmd FileType haskell setlocal softtabstop=2
-autocmd FileType haskell setlocal expandtab
-
-" Elixir
-autocmd FileType elixir setlocal tabstop=2
-autocmd FileType elixir setlocal shiftwidth=2
-autocmd FileType elixir setlocal softtabstop=2
-autocmd FileType elixir setlocal expandtab
+" Haskell, Elixir
+autocmd FileType haskell,elixir setlocal tabstop=2
+autocmd FileType haskell,elixir setlocal shiftwidth=2
+autocmd FileType haskell,elixir setlocal softtabstop=2
+autocmd FileType haskell,elixir setlocal expandtab
 
 
 "
