@@ -39,6 +39,9 @@ set wildignore+=*/vendor/*,*.o,*.pyc
 set wildignore+=*/tags/*,*.log,*.zip
 set wildignore+=*/\.git/*
 
+" eye-candy
+colorscheme desert
+
 " split layout
 set splitright
 
@@ -65,6 +68,17 @@ map <C-S-RIGHT> <C-w>>
 "
 " PLUGINS
 " 
+" Omni
+set omnifunc=syntaxcomplete#Complete
+
+" Omni-Python
+autocmd FileType python setlocal omnifunc=python3complete#Complete
+
+" Omni-Ruby
+autocmd FileType ruby,eruby setlocal omnifunc=rubycomplete#Complete
+let g:rubycomplete_buffer_loading = 1 
+let g:rubycomplete_classes_in_global = 1
+let g:rubycomplete_rails = 1
 
 " file browser broot
 let g:broot_default_conf_path = expand('~/.config/broot/conf.hjson')
@@ -86,12 +100,14 @@ autocmd BufEnter Makefile setlocal noexpandtab
 
 " PYTHON
 " Format PEP-8
+autocmd FileType python compiler python3
 autocmd FileType python setlocal tabstop=4
 autocmd FileType python setlocal shiftwidth=4
 autocmd FileType python setlocal softtabstop=4
 autocmd FileType python setlocal expandtab
 
 " C++, BASH
+autocmd FileType sh compiler zsh
 autocmd FileType cpp,sh setlocal tabstop=4
 autocmd FileType cpp,sh setlocal shiftwidth=4
 autocmd FileType cpp,sh setlocal softtabstop=4
@@ -147,17 +163,20 @@ nnoremap <leader>c :cw<CR>
 " help
 nnoremap <leader>h :help 
 
+" make
+nnoremap <leader>m :make! 
+
 " close terminal window
 tnoremap <leader>q <C-w>:q!<CR>
 nnoremap <leader>q <C-\><C-n>:q!<CR>
 
 " switcher
 nnoremap <leader>s :CtrlPBuffer<CR>
-
+:
 
 " 2 keys
 
-""" tool windows
+" tool windows
 " quickfix
 nnoremap <leader>co :copen<CR>
 nnoremap <leader>cc :cclose<CR>
