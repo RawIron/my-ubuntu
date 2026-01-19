@@ -4,11 +4,7 @@
   apt:
     update_cache: yes
     state: latest
-    name: ['git', 'meld', 'ag', 'xclip', 'jq', 'cloc']
-
-- name: install vim
-  include_tasks: vim.yml
-  tags: vim
+    name: ['git', 'meld', 'rg', 'ag', 'xclip', 'jq', 'scc', 'cloc']
 
 - name: install neovim
   include_tasks: neovim.yml

@@ -1,14 +1,13 @@
 ---
 
-- name: copy vim config
+- name: copy neovim config
   copy: src=./files/{{ item }}
-        dest=/home/{{ user }}/.{{ item }}
+        dest=/home/{{ user }}/.config/nvim/{{ item }}
         owner={{ user }}
         group={{ user }}
         mode=0640
   with_items:
-    - exrc
-    - vimrc
+    - init.vim
 
 - name: copy zsh aliases
   copy: src=./files/{{ item }}

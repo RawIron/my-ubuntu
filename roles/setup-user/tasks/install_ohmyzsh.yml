@@ -47,4 +47,4 @@
   lineinfile:
     dest: "{{ user_home }}/.zshrc"
     regexp: "# *export EDITOR"
-    line: "export EDITOR=vim"
+    line: "export EDITOR=nvim"
