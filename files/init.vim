@@ -1,20 +1,23 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" Specify a directory for plugins
-" - For Neovim: stdpath('data') . '/plugged'
-call plug#begin('~/.local/share/nvim/plugged')
+" Manage Plugins
+" install minpac in ~/.config/nvim/pack/minpac/opt
+packadd minpac
+call minpac#init()
 
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'mileszs/ack.vim'
-Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
+call minpac#add('k-takata/minpac', {'type': 'opt'})
+call minpac#add('junegunn/fzf')
+call minpac#add('lstwn/broot.vim')
+call minpac#add('duane9/nvim-rg')
+call minpac#add('tpope/vim-surround')
+call minpac#add('Numkil/ag.nvim', {'type': 'opt'})
+"call minpac#add('SirVer/ultisnips')
+"call minpac#add('honza/vim-snippets')
+"call minpac#add('vim-airline/vim-airline')
 
-" Initialize plugin system
-call plug#end()
-
+command! PackUpdate call minpac#update()
+command! PackClean call minpac#clean()
 
 " Syntax Highlighting
 syntax on
@@ -39,8 +42,11 @@ set wildignore+=*/vendor/*,*.o,*.pyc
 set wildignore+=*/tags/*,*.log,*.zip
 set wildignore+=*/\.git/*
 
-" eye-candy
-colorscheme desert
+colorscheme sorbet
+" colorscheme unokai
+" colorscheme slate
+" colorscheme zaibatsu
+" colorscheme desert
 
 " split layout
 set splitright
@@ -80,20 +86,25 @@ let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
 
+" file browser netrw
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 2
+let g:netrw_winsize = 15
+
 " file browser broot
 let g:broot_default_conf_path = expand('~/.config/broot/conf.hjson')
-
-" CtrlP
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = 0
 
 
 "
 " LANGUAGES
 "
 filetype indent on
+
+" space characters for indentation
+set expandtab
+set tabstop=2
+set shiftwidth=2
 
 " Makefile
 autocmd BufEnter Makefile setlocal noexpandtab
@@ -128,13 +139,6 @@ autocmd FileType haskell,elixir setlocal softtabstop=2
 autocmd FileType haskell,elixir setlocal expandtab
 
 
-" Delete Line
-nnoremap <c-d> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
-nnoremap <c-s-d> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
-" Insert Line
-nnoremap <c-y> :set paste<CR>m`o<Esc>``:set nopaste<CR>
-nnoremap <c-s-y> :set paste<CR>m`O<Esc>``:set nopaste<CR>
-
 
 "
 " KEY MAPPINGS - leader
@@ -151,8 +155,17 @@ inoremap ;; <esc>
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
 
-" open Ack.vim
-nnoremap <leader>a :Ack! 
+" open file browser
+nnoremap <leader>n :Vexplore<CR>
+
+" make
+nnoremap <leader>m :make! 
+
+" silver-searcher
+nnoremap <leader>a :Ag<Space>
+
+" ripgrep
+nnoremap <leader>r :Rg<Space>
 
 " buffers, including unlisted
 nnoremap <leader>b :buffers!<CR>:buffer<Space>
@@ -163,18 +176,14 @@ nnoremap <leader>c :cw<CR>
 " help
 nnoremap <leader>h :help 
 
-" make
-nnoremap <leader>m :make! 
-
 " close terminal window
 tnoremap <leader>q <C-w>:q!<CR>
 nnoremap <leader>q <C-\><C-n>:q!<CR>
 
-" switcher
-nnoremap <leader>s :CtrlPBuffer<CR>
-:
 
 " 2 keys
+nnoremap <leader>eh :Broot<CR>
+nnoremap <leader>ev :Broot vsplit<CR>
 
 " tool windows
 " quickfix
@@ -191,3 +200,14 @@ nnoremap <leader>lp :lprevious<CR>
 
 " help
 nnoremap <leader>hc :helpclose<CR>
+
+
+" fuzzy file search
+nnoremap <C-p> :FZF<CR>
+
+" Delete Line
+nnoremap <c-d> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <c-s-d> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
+" Insert Line
+nnoremap <c-y> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+nnoremap <c-s-y> :set paste<CR>m`O<Esc>``:set nopaste<CR>
