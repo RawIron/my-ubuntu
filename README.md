@@ -77,10 +77,8 @@ also great for scaling.
 * ansible
 * docker
 
-### aws
+### cloud
 tools to access, manage and deploy.
-* jungledisk
-* s3cmd
 * awscli
 * rclone
 
@@ -109,15 +107,14 @@ programming languages for high performance and system level access.
 wrangle, plot, predict, test hypothesis, estimate.
 
 #### py-data
-* anaconda
 * numpy, scipy, sympy, Jupyter, Seaborn, scikit-learn
 
 
 ### development tools
 write code with fully fledged IDE or lightweight editor. plugins can be used to extend the functionality.
-* intellij idea
 * vscode
-* vim
+* neovim
+* intellij idea
 * git
 * meld
 
@@ -130,9 +127,7 @@ write code with fully fledged IDE or lightweight editor. plugins can be used to 
 
 #### vim plugins
 * YouCompleteMe
-* syntastic
 * UltiSnips
-* NerdTree
 * tagbar
 * vim-fugitive
 * vim-airline
@@ -143,9 +138,10 @@ look under the hood.
 #### performance
 show and measure what is happening in the Linux kernel.
 
-* SystemTap, perf_events, dtrace4linux, ktap, lttng
+* SystemTap, perf_events, ktap, lttng
 * strace, ftrace, ltrace, ss, sysdig, tiptop
 * mpstat, vmstat, netstat, iostat
+* htop, nmon
 
 
 ### user account
@@ -163,53 +159,13 @@ communicate. create and manage documents, files.
 * Kazam
 * Screenkey
 * 7zip, bzip2
-* Midnight Commander
-
-#### firefox plugins
-* FileZilla
 
 ### media
 view and process photos, e-books, audio and video.
 * rawtherapee
 * vlc media player
+* mpv
 * ripperX
-* dvdrip
+* handbrake
 * OpenShot
 * Calibre
-
-### games
-* pychess
-
-### eye candy
-give Linux the look-and-feel I like.
-unfortunately haven`t figured out how to configure a "glass look"
-  * all backgrounds are transparent, blurred
-  * drop-down menu are transparent, blurred
-  * ...
-
-tools for UI tweaks. did a few tweaks.
-* Compiz config manager (CCSM)
-```
-sudo apt-get install ccsm
-```
-
-Compiz config settings manager, Unity plugin
-* set opacity for launcher
-* set opacity for panel (or use Unity Tweak Tool)
-
-
-browse and download a theme
-```
-gnome-look.org
-sudo apt-get install arc-theme
-```
-
-set theme in Unity Tweak Tool
-* current theme is `Arc-dark`
-
-
-change desktop background
-* ghost-in-the-shell
-
-terminator
-* transparency of background
