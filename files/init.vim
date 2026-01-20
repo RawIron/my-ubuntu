@@ -15,7 +15,6 @@ call minpac#add('Numkil/ag.nvim', {'type': 'opt'})
 call minpac#add('SirVer/ultisnips', {'type': 'opt'})
 call minpac#add('honza/vim-snippets', {'type': 'opt'})
 call minpac#add('majutsushi/tagbar', {'type': 'opt'})
-call minpac#add('vim-syntastic/syntastic', {'type': 'opt'})
 "call minpac#add('Valloric/YouCompleteMe')
 "call minpac#add('elixir-lang/vim-elixir')
 "call minpac#add('easymotion/vim-easymotion')
@@ -116,23 +115,6 @@ let g:ycm_clangd_args = ['-pretty']
 let g:tagbar_ctags_bin = '/usr/bin/ctags-exuberant'
 let g:tagbar_left = 0
 set tags=./tags;,tags;
-
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_highlighting = 0
-let g:syntastic_mode_map = {
-\ "mode": "passive",
-\ "active_filetypes": [],
-\ "passive_filetypes": [] }
-
-let g:syntastic_python_checkers = ['pylint']
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<C-j>"
@@ -235,12 +217,6 @@ nnoremap <leader>t :TagbarOpenAutoClose<CR>
 " YCM
 nnoremap <leader>dj :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>dcj :YcmCompleter GoToDeclaration<CR>
-
-" Syntastic
-nnoremap <leader>sc :SyntasticCheck<CR>
-nnoremap <leader>sr :SyntasticReset<CR>
-nnoremap <leader>st :SyntasticToggle<CR>
-nnoremap <leader>se :Errors<CR>
 
 nnoremap <leader>eh :Broot<CR>
 nnoremap <leader>ev :Broot vsplit<CR>
