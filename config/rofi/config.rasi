@@ -1,0 +1,12 @@
+configuration {
+case-sensitive: false;
+display-drun: "Apps:";
+font: "Fira Sans 10";
+location: 0;
+modi: [ "drun","filebrowser","run" ];
+show-icons: false;
+terminal: "foot";
+xoffset: 0;
+yoffset: 0;
+}
+@theme "custom"

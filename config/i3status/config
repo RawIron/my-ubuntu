@@ -1,0 +1,65 @@
+general {
+  color_bad = "#C0392B"
+  color_degraded = "#FDBC4B"
+  color_good = "#1CDC9A"
+  colors = true
+  interval = 5
+  output_format = "i3bar"
+}
+
+order += "ipv6"
+order += "path_exists VPN"
+order += "wireless _first_"
+order += "ethernet _first_"
+order += "load"
+order += "battery all"
+order += "disk /"
+order += "memory"
+order += "tztime local"
+battery all {
+  format = "%status %percentage"
+  low_threshold = 15
+  threshold_type = "percentage"
+}
+
+disk / {
+  format = "/ %avail"
+  low_threshold = 15
+  threshold_type = "gbytes_avail"
+}
+
+ethernet _first_ {
+  format_down = "E: down"
+  format_up = "E: %speed"
+}
+
+ipv6 {
+  
+}
+
+load {
+  format = "L: %1min"
+  max_threshold = 5
+}
+
+memory {
+  format = "M: %used"
+  format_degraded = "M< %available"
+  threshold_critical = "1G"
+  threshold_degraded = "2G"
+}
+
+path_exists VPN {
+  format = "%title"
+  format_down = ""
+  path = "/proc/sys/net/ipv4/conf/proton0"
+}
+
+tztime local {
+  format = "%Y-%m-%d %H:%M:%S"
+}
+
+wireless _first_ {
+  format_down = "W: down"
+  format_up = "W: %quality %essid"
+}

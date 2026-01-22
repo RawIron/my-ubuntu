@@ -1,0 +1,173 @@
+font pango:Fira Sans 10
+floating_modifier Mod4
+default_border pixel 3
+default_floating_border pixel 3
+hide_edge_borders none
+focus_wrapping no
+focus_follows_mouse no
+focus_on_window_activation smart
+mouse_warping output
+workspace_layout default
+workspace_auto_back_and_forth no
+client.focused #3DAEE9 #3DAEE9 #EFF0F1 #3DAEE9 #3DAEE9
+client.focused_inactive #4F5255 #4F5255 #EFF0F1 #4F5255 #4F5255
+client.unfocused #4F5255 #4F5255 #EFF0F1 #4F5255 #4F5255
+client.urgent #C0392B #C0392B #EFF0F1 #C0392B #C0392B
+client.placeholder #3DAEE9 #3DAEE9 #EFF0F1 #3DAEE9 #3DAEE9
+client.background #31363B
+
+bindsym Mod4+0 workspace number 10
+bindsym Mod4+1 workspace number 1
+bindsym Mod4+2 workspace number 2
+bindsym Mod4+3 workspace number 3
+bindsym Mod4+4 workspace number 4
+bindsym Mod4+5 workspace number 5
+bindsym Mod4+6 workspace number 6
+bindsym Mod4+7 workspace number 7
+bindsym Mod4+8 workspace number 8
+bindsym Mod4+9 workspace number 9
+bindsym Mod4+Ctrl+c exec /nix/store/lkch9vwrwacg0ybz7jhg5gkmr7ajvy9b-cliphist-0.7.0/bin/cliphist list | /nix/store/7v2n1d4ikj13qarw1svavgzphrb1ah04-rofi-2.0.0/bin/rofi -dmenu | /nix/store/lkch9vwrwacg0ybz7jhg5gkmr7ajvy9b-cliphist-0.7.0/bin/cliphist decode | /nix/store/p41v3c8za65y5xv6s5bvasv9baq0r2an-wl-clipboard-2.2.1/bin/wl-copy
+bindsym Mod4+Ctrl+f exec /nix/store/7v2n1d4ikj13qarw1svavgzphrb1ah04-rofi-2.0.0/bin/rofi -show filebrowser
+bindsym Mod4+Ctrl+i exec /nix/store/79na5lg288qg7hjzw26s6df2gs6z388k-rofi-pass-2.0.2-unstable-2024-06-16/bin/rofi-pass
+bindsym Mod4+Ctrl+p exec /nix/store/7v2n1d4ikj13qarw1svavgzphrb1ah04-rofi-2.0.0/bin/rofi -show menu -modi 'menu:/nix/store/c5ixrlj9awy0rh3rrm5wivjd2ny84v7v-rofi-power-menu-3.1.0/bin/rofi-power-menu --no-symbols'
+bindsym Mod4+Down focus down
+bindsym Mod4+Left focus left
+bindsym Mod4+Return exec /nix/store/apbbdgg71vm08fb9jd6xzxis9kb2kv8i-foot-1.25.0/bin/foot
+bindsym Mod4+Right focus right
+bindsym Mod4+Shift+0 move container to workspace number 10
+bindsym Mod4+Shift+1 move container to workspace number 1
+bindsym Mod4+Shift+2 move container to workspace number 2
+bindsym Mod4+Shift+3 move container to workspace number 3
+bindsym Mod4+Shift+4 move container to workspace number 4
+bindsym Mod4+Shift+5 move container to workspace number 5
+bindsym Mod4+Shift+6 move container to workspace number 6
+bindsym Mod4+Shift+7 move container to workspace number 7
+bindsym Mod4+Shift+8 move container to workspace number 8
+bindsym Mod4+Shift+9 move container to workspace number 9
+bindsym Mod4+Shift+Down move down
+bindsym Mod4+Shift+Left move left
+bindsym Mod4+Shift+Right move right
+bindsym Mod4+Shift+Tab workspace prev
+bindsym Mod4+Shift+Up move up
+bindsym Mod4+Shift+c reload
+bindsym Mod4+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+bindsym Mod4+Shift+h move left
+bindsym Mod4+Shift+j move down
+bindsym Mod4+Shift+k move up
+bindsym Mod4+Shift+l move right
+bindsym Mod4+Shift+minus move scratchpad
+bindsym Mod4+Shift+p mode session
+bindsym Mod4+Shift+q kill
+bindsym Mod4+Shift+space floating toggle
+bindsym Mod4+Tab workspace next
+bindsym Mod4+Up focus up
+bindsym Mod4+a focus parent
+bindsym Mod4+b splith
+bindsym Mod4+d exec /nix/store/7v2n1d4ikj13qarw1svavgzphrb1ah04-rofi-2.0.0/bin/rofi -show drun
+bindsym Mod4+e layout toggle split
+bindsym Mod4+f fullscreen toggle
+bindsym Mod4+h focus left
+bindsym Mod4+j focus down
+bindsym Mod4+k focus up
+bindsym Mod4+l focus right
+bindsym Mod4+m mode audio
+bindsym Mod4+minus scratchpad show
+bindsym Mod4+r mode resize
+bindsym Mod4+s layout stacking
+bindsym Mod4+space focus mode_toggle
+bindsym Mod4+v splitv
+bindsym Mod4+w layout tabbed
+bindsym Print mode printscreen
+bindsym Shift+Print mode recording
+
+input "type:mouse" {
+  natural_scroll disabled
+}
+
+input "type:pointer" {
+  natural_scroll enabled
+}
+
+input "type:touchpad" {
+  accel_profile flat
+  dwt enabled
+  middle_emulation enabled
+  natural_scroll enabled
+  pointer_accel 1.0
+  tap enabled
+}
+
+output "*" {
+  bg ~/.local/share/backgrounds/current.png fill
+}
+
+mode "audio" {
+  bindsym Escape mode default
+  bindsym Return mode default
+  bindsym i exec /nix/store/ky4d51xmxwbaraawg9430lj6gzzz8jbi-rofi-pulse-select-0.2.0/bin/rofi-pulse-select source, mode default
+  bindsym o exec /nix/store/ky4d51xmxwbaraawg9430lj6gzzz8jbi-rofi-pulse-select-0.2.0/bin/rofi-pulse-select sink, mode default
+}
+
+mode "resize" {
+  bindsym Escape mode default
+  bindsym Return mode default
+  bindsym h resize shrink width 10 px or 10 ppt
+  bindsym j resize grow height 10 px or 10 ppt
+  bindsym k resize shrink height 10 px or 10 ppt
+  bindsym l resize grow width 10 px or 10 ppt
+}
+
+mode "session" {
+  bindsym Escape mode default
+  bindsym Return mode default
+  bindsym h exec /nix/store/yxk9smkrispxlz2ka3gxigvmzhf0fn65-systemd-258.2/bin/systemctl hibernate, mode default
+  bindsym l exec /nix/store/261q8h6n8v71hpykfp626ghxbs8zsaf8-swaylock-1.8.4/bin/swaylock, mode default
+  bindsym o exec /nix/store/rvpaj1ynm23mwd04bps5vzddp2jj2qx1-sway-1.11/bin/swaymsg exit, mode default
+  bindsym p exec /nix/store/yxk9smkrispxlz2ka3gxigvmzhf0fn65-systemd-258.2/bin/systemctl poweroff, mode default
+  bindsym r exec /nix/store/yxk9smkrispxlz2ka3gxigvmzhf0fn65-systemd-258.2/bin/systemctl reboot, mode default
+  bindsym s exec /nix/store/yxk9smkrispxlz2ka3gxigvmzhf0fn65-systemd-258.2/bin/systemctl suspend, mode default
+}
+
+assign [app_id="foot"] 1
+assign [app_id="st"] 1
+assign [app_id="firefox"] 2
+assign [class="signal.*"] 3
+assign [app_id="vscode"] 4
+assign [app_id="htop"] 5
+bar {
+  font pango:Fira Mono 8
+  mode dock
+  hidden_state hide
+  position bottom
+  status_command /nix/store/qndbg69hrhdmwg91x01xwk7mcbnagppc-i3status-2.15/bin/i3status
+  swaybar_command /nix/store/rvpaj1ynm23mwd04bps5vzddp2jj2qx1-sway-1.11/bin/swaybar
+  workspace_buttons yes
+  strip_workspace_numbers no
+  tray_output primary
+  colors {
+    background #31363B20
+    statusline #1CDC9A
+    separator #4F5255
+    focused_workspace #1E92FF #31363B #1E92FF
+    active_workspace #1CDC9A #31363B #1CDC9A
+    inactive_workspace #4F5255 #31363B #4F5255
+    urgent_workspace #ED1515 #31363B #ED1515
+    binding_mode #ED1515 #31363B #EFF0F1
+  }
+}
+
+gaps inner 15
+for_window [app_id=".*zathura"] floating enable
+for_window [app_id="imv"] floating enable
+for_window [app_id="mpv"] floating enable
+for_window [app_id="qt5ct"] floating enable
+for_window [app_id="qt6ct"] floating enable
+for_window [class="feh"] floating enable
+for_window [class="Zotero"] floating enable
+for_window [instance="lxappearance"] floating enable
+for_window [class=".*"] opacity 0.85, border pixel 3, inhibit_idle fullscreen
+for_window [app_id=".*"] opacity 0.85, border pixel 3, inhibit_idle fullscreen
+for_window [app_id="mpv"] opacity 1.00, border pixel 3, inhibit_idle fullscreen
+for_window [class="feh"] opacity 1.00, border pixel 3, inhibit_idle fullscreen
+for_window [app_id="imv"] opacity 1.00, border pixel 3, inhibit_idle fullscreen
+exec "/nix/store/jzabhj35nyafblca2savgn6dyfihmfvp-dbus-1.14.10/bin/dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE NIXOS_OZONE_WL XCURSOR_THEME XCURSOR_SIZE; systemctl --user reset-failed && systemctl --user start sway-session.target && swaymsg -mt subscribe '[]' || true && systemctl --user stop sway-session.target"

@@ -1,0 +1,7 @@
+.git
+.mozilla
+.cache
+Calibre Library
+.nix-defexpr
+.config/Signal
+.local/state/home-manager
