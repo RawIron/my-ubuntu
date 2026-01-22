@@ -8,13 +8,14 @@ call minpac#init()
 
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 call minpac#add('junegunn/fzf')
+call minpac#add('junegunn/fzf.vim')
 call minpac#add('lstwn/broot.vim')
-call minpac#add('duane9/nvim-rg')
 call minpac#add('tpope/vim-surround')
-call minpac#add('Numkil/ag.nvim', {'type': 'opt'})
+call minpac#add('tpope/vim-commentary')
 call minpac#add('SirVer/ultisnips', {'type': 'opt'})
 call minpac#add('honza/vim-snippets', {'type': 'opt'})
 call minpac#add('majutsushi/tagbar', {'type': 'opt'})
+call minpac#add('duane9/nvim-rg', {'type': 'opt'})     " fzf.vim provides :Rg
 "call minpac#add('Valloric/YouCompleteMe')
 "call minpac#add('elixir-lang/vim-elixir')
 "call minpac#add('easymotion/vim-easymotion')
@@ -79,6 +80,16 @@ map <C-S-RIGHT> <C-w>>
 "
 " PLUGINS
 " 
+
+" file browser netrw
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 2
+let g:netrw_winsize = 15
+
+" file browser broot
+let g:broot_default_conf_path = expand('~/.config/broot/conf.hjson')
+
 " Omni
 set omnifunc=syntaxcomplete#Complete
 
@@ -90,15 +101,6 @@ autocmd FileType ruby,eruby setlocal omnifunc=rubycomplete#Complete
 let g:rubycomplete_buffer_loading = 1 
 let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
-
-" file browser netrw
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 2
-let g:netrw_winsize = 15
-
-" file browser broot
-let g:broot_default_conf_path = expand('~/.config/broot/conf.hjson')
 
 " YouCompleteMe
 let g:ycm_collect_identifiers_from_tags_files = 1
